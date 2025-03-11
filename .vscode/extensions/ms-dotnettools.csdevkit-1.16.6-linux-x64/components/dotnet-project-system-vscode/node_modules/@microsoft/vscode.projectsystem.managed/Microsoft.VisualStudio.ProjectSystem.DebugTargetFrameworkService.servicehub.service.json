@@ -1,0 +1,10 @@
+{
+  "host": "dotnet.projectSystem",
+  "entryPoint": {
+    "assemblyPath": "Services/Microsoft.ProjectSystem.Managed.VSCode.Services.dll",
+    "fullClassName": "Microsoft.VisualStudio.ProjectSystem.Services.DebugTargetFrameworkServiceFactory"
+  },
+  "friendServices": [
+    "Microsoft.VisualStudio.ProjectSystem.CompositionService"
+  ]
+}

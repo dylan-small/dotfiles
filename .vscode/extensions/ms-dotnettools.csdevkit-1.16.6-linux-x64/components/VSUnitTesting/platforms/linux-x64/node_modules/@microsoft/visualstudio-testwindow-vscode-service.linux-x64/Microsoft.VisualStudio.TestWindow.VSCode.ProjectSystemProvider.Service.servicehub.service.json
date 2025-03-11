@@ -1,0 +1,7 @@
+{
+  "host": "dotnet",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.TestWindow.VSCode.Service.dll",
+    "fullClassName": "Microsoft.VisualStudio.TestWindow.VSCode.ProjectSystemProvider.Service.ProjectSystemProviderServiceFactory"
+  }
+}

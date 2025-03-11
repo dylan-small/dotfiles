@@ -1,0 +1,7 @@
+﻿{
+  "host": "dotnet.projectSystem",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.ProjectSystem.Server.Implementation.dll",
+    "fullClassName": "Microsoft.VisualStudio.ProjectSystem.Server.ProjectTreeProviderFactory"
+  }
+}

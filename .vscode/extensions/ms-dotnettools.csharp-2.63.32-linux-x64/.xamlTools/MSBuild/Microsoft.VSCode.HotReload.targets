@@ -1,0 +1,12 @@
+<Project>
+	<Target Name="_AddHotReloadAssemblies" BeforeTargets="CoreCompile" Condition="'$(EnableHotReload)' == 'True'">
+		<Message Importance="High" Text="Including assemblies for Hot Reload support" />
+	</Target>
+
+	<ItemGroup Condition="'$(EnableHotReload)' == 'True'">
+		<Reference Include="$(XamlTools)\runtime\Microsoft.Maui.Controls.HotReload.Forms.dll"/>
+		<Reference Include="$(XamlTools)\runtime\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll" />
+  	<Reference Include="$(XamlTools)\runtime\Microsoft.VisualStudio.DesignTools.TapContract.dll"/>
+  	<Reference Include="$(XamlTools)\runtime\Microsoft.VisualStudio.DesignTools.XamlTapContract.dll"/>
+	</ItemGroup>
+</Project>

@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "dependencies": {
+    "@microsoft/visualstudio-languageservices-devkit": "4.8.0-3.23475.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://dev.azure.com/dnceng/internal/_git/dotnet-roslyn",
+    "branch": "main"
+  }
+}

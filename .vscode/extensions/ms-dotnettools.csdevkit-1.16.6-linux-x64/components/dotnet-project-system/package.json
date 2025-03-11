@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "dependencies": {
+    "@microsoft/microsoft.visualstudio.projectsystem.managed": "17.13.136-g8f52554738"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dotnet/project-system",
+    "branch": "main"
+  }
+}

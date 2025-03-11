@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "dependencies": {
+    "@microsoft/servicehub-controller-net60.alpine-x64": "4.5.2031",
+    "@microsoft/visualstudio-code-servicehost.alpine-x64": "0.2.288-beta",
+    "@microsoft/visualstudio-reliability-monitor.alpine-x64": "0.2.288-beta",
+    "@microsoft/visualstudio-server-samples-sayhello.alpine-x64": "0.2.288-beta",
+    "@microsoft/visualstudio-server-shared.alpine-x64": "0.2.288-beta",
+    "@microsoft/visualstudio-server.alpine-x64": "0.2.288-beta"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://devdiv.visualstudio.com/DevDiv/_git/vs-green-server",
+    "branch": "main"
+  }
+}

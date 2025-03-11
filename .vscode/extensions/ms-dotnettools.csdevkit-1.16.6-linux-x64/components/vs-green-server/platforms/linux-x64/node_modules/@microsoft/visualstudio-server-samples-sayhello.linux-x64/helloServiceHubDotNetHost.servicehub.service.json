@@ -1,0 +1,7 @@
+﻿{
+  "host": "dotnet",
+  "entryPoint": {
+    "assemblyPath": "Microsoft.VisualStudio.Samples.SayHello.dll",
+    "fullClassName": "Microsoft.VisualStudio.Samples.SayHello.HelloWorldFactory"
+  }
+}

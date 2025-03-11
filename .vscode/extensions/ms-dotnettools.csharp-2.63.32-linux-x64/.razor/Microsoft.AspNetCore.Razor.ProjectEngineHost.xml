@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Microsoft.AspNetCore.Razor.ProjectEngineHost</name>
+    </assembly>
+    <members>
+        <member name="P:Microsoft.AspNetCore.Razor.ProjectEngineHost.Resources.SR.Unsupported_argument_kind">
+            <summary>Unsupported argument kind: '{0}'.</summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.ProjectEngineHost.Resources.SR.FormatUnsupported_argument_kind(System.Object)">
+            <summary>Unsupported argument kind: '{0}'.</summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.ProjectEngineHost.Resources.SR.Unsupported_argument_type">
+            <summary>Unsupported argument type: '{0}'.</summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.ProjectEngineHost.Resources.SR.FormatUnsupported_argument_type(System.Object)">
+            <summary>Unsupported argument type: '{0}'.</summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.ProjectEngineHost.Resources.SR.Unsupported_Razor_extension_0">
+            <summary>Unsupported Razor extension: '{0}'.</summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.ProjectEngineHost.Resources.SR.FormatUnsupported_Razor_extension_0(System.Object)">
+            <summary>Unsupported Razor extension: '{0}'.</summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.ProjectEngineHost.Resources.SR.Unsupported_razor_project_info_version_encountered">
+            <summary>Unsupported razor project info version encounted.</summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.ProjectSystem.IDocumentSnapshot.GetCSharpSyntaxTreeAsync(System.Threading.CancellationToken)">
+            <summary>
+             Gets the Roslyn syntax tree for the generated C# for this Razor document
+            </summary>
+            <remarks>
+             ⚠️ Should be used sparingly in language server scenarios.
+            </remarks>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.ProjectSystem.IProjectSnapshot.FilePath">
+            <summary>
+            Gets the full path to the .csproj file for this project
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.ProjectSystem.IProjectSnapshot.IntermediateOutputPath">
+            <summary>
+            Gets the full path to the folder under 'obj' where the project.razor.bin file will live
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Razor.ProjectSystem.ProjectKey">
+            <summary>
+            A very light wrapper around a file path, used to ensure consistency across the code base for what constitutes the unique
+            identifier for a project.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Razor.Serialization.MessagePack.Formatters.TopLevelFormatter`1">
+            <summary>
+             A message pack formatter that can be serialized at the top-level.
+             It will create a <see cref="T:Microsoft.AspNetCore.Razor.Serialization.MessagePack.Formatters.SerializerCachingOptions"/> instance if one isn't
+             passed to <see cref="T:MessagePack.MessagePackSerializer"/>.
+            </summary>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Razor.Serialization.MessagePack.Formatters.ValueFormatter`1">
+            <summary>
+             A message package formatter that cannot be serialized at the top-level. It expects a
+             <see cref="T:Microsoft.AspNetCore.Razor.Serialization.MessagePack.Formatters.SerializerCachingOptions"/> instance to be passed to it.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Serialization.MessagePack.Formatters.ValueFormatter`1.Skim(MessagePack.MessagePackReader@,Microsoft.AspNetCore.Razor.Serialization.MessagePack.Formatters.SerializerCachingOptions)">
+            <summary>
+             Partially deserializes an object and ensures that any cached references are handled. Descendents should override
+             this method if they support skimming.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Telemetry.ITelemetryReporter.ReportRequestTiming(System.String,System.String,System.TimeSpan,System.TimeSpan,Microsoft.AspNetCore.Razor.Telemetry.TelemetryResult)">
+            <summary>
+            Reports timing data for an lsp request
+            </summary>
+            <param name="name">The method name</param>
+            <param name="language">The language for the request</param>
+            <param name="queuedDuration">How long the request was in the queue before it was handled by code</param>
+            <param name="requestDuration">How long it took to handle the request</param>
+            <param name="result">The result of handling the request</param>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Razor.Threading.CancellationSeries">
+            <summary>
+            Produces a series of <see cref="T:System.Threading.CancellationToken"/> objects such that requesting a new token
+            causes the previously issued token to be cancelled.
+            </summary>
+            <remarks>
+            <para>Consuming code is responsible for managing overlapping asynchronous operations.</para>
+            <para>This class has a lock-free implementation to minimise latency and contention.</para>
+            </remarks>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Threading.CancellationSeries.#ctor(System.Threading.CancellationToken)">
+            <summary>
+            Initializes a new instance of <see cref="T:Microsoft.AspNetCore.Razor.Threading.CancellationSeries"/>.
+            </summary>
+            <param name="token">An optional cancellation token that, when cancelled, cancels the last
+            issued token and causes any subsequent tokens to be issued in a cancelled state.</param>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.Threading.CancellationSeries.HasActiveToken">
+            <summary>
+            Determines if the cancellation series has an active token which has not been cancelled.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Threading.CancellationSeries.CreateNext(System.Threading.CancellationToken)">
+            <summary>
+            Creates the next <see cref="T:System.Threading.CancellationToken"/> in the series, ensuring the last issued
+            token (if any) is cancelled first.
+            </summary>
+            <param name="token">An optional cancellation token that, when cancelled, cancels the
+            returned token.</param>
+            <returns>
+            A cancellation token that will be cancelled when either:
+            <list type="bullet">
+            <item><see cref="M:Microsoft.AspNetCore.Razor.Threading.CancellationSeries.CreateNext(System.Threading.CancellationToken)"/> is called again</item>
+            <item>The token passed to this method (if any) is cancelled</item>
+            <item>The token passed to the constructor (if any) is cancelled</item>
+            <item><see cref="M:Microsoft.AspNetCore.Razor.Threading.CancellationSeries.Dispose"/> is called</item>
+            </list>
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">This object has been disposed.</exception>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Threading.TaskExtensions.VerifyCompleted(System.Threading.Tasks.ValueTask)">
+            <summary>
+            Asserts the <see cref="T:System.Threading.Tasks.ValueTask"/> passed has already been completed.
+            </summary>
+            <remarks>
+            This is useful for a specific case: sometimes you might be calling an API that is "sometimes" async, and you're
+            calling it from a synchronous method where you know it should have completed synchronously. This is an easy
+            way to assert that while silencing any compiler complaints.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Threading.TaskExtensions.VerifyCompleted``1(System.Threading.Tasks.ValueTask{``0})">
+            <summary>
+            Asserts the <see cref="T:System.Threading.Tasks.ValueTask"/> passed has already been completed.
+            </summary>
+            <remarks>
+            This is useful for a specific case: sometimes you might be calling an API that is "sometimes" async, and you're
+            calling it from a synchronous method where you know it should have completed synchronously. This is an easy
+            way to assert that while silencing any compiler complaints.
+            </remarks>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue">
+            <inheritdoc cref="T:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2"/>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue.#ctor(System.TimeSpan,System.Func{System.Threading.CancellationToken,System.Threading.Tasks.ValueTask},System.Threading.CancellationToken)">
+            <inheritdoc cref="T:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2"/>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`1">
+            <inheritdoc cref="T:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2"/>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`1.#ctor(System.TimeSpan,System.Func{System.Collections.Immutable.ImmutableArray{`0},System.Threading.CancellationToken,System.Threading.Tasks.ValueTask},System.Collections.Generic.IEqualityComparer{`0},System.Action,System.Threading.CancellationToken)">
+            <inheritdoc cref="T:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2"/>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2">
+            <summary>
+            A queue where items can be added to to be processed in batches after some delay has passed. When processing
+            happens, all the items added since the last processing point will be passed along to be worked on.  Rounds of
+            processing happen serially, only starting up after a previous round has completed.
+            <para>
+            Failure to complete a particular batch (either due to cancellation or some faulting error) will not prevent
+            further batches from executing. The only thing that will permanently stop this queue from processing items is if
+            the <see cref="T:System.Threading.CancellationToken"/> passed to the constructor switches to <see
+            cref="P:System.Threading.CancellationToken.IsCancellationRequested"/>.
+            </para>
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._delay">
+            <summary>
+            Delay we wait after finishing the processing of one batch and starting up on then.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._equalityComparer">
+            <summary>
+            Equality comparer uses to dedupe items if present.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._idleAction">
+            <summary>
+            Fired when all batches have finished being processed, and the queue is waiting for an AddWork call.
+            </summary>
+            <remarks>
+            This is a best-effort signal with no guarantee that more work won't be queued, and hence the queue
+            going non-idle, immediately after (or during!) the event firing.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._processBatchAsync">
+            <summary>
+            Callback to actually perform the processing of the next batch of work.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._entireQueueCancellationToken">
+            <summary>
+            Cancellation token controlling the entire queue.  Once this is triggered, we don't want to do any more work
+            at all.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._cancellationSeries">
+            <summary>
+            Cancellation series we use so we can cancel individual batches of work if requested.  The client of the
+            queue can cancel existing work by either calling <see cref="M:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2.CancelExistingWork"/> directly, or passing <see
+            langword="true"/> to <see cref="M:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2.AddWork(`0,System.Boolean)"/>.  Work in the queue that has not started will be
+            immediately discarded. The cancellation token passed to <see cref="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._processBatchAsync"/> will be triggered
+            allowing the client callback to cooperatively cancel the current batch of work it is performing.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._gate">
+            <summary>
+            Lock we will use to ensure the remainder of these fields can be accessed in a thread-safe
+            manner.  When work is added we'll place the data into <see cref="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._nextBatch"/>.
+            We'll then kick of a task to process this in the future if we don't already have an
+            existing task in flight for that.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._nextBatch">
+            <summary>
+            Data added that we want to process in our next update task.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._nextBatchCancellationToken">
+            <summary>
+            CancellationToken controlling the next batch of items to execute.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._uniqueItems">
+            <summary>
+            Used if <see cref="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._equalityComparer"/> is present to ensure only unique items are added to <see
+            cref="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._nextBatch"/>.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._updateTask">
+            <summary>
+            Task kicked off to do the next batch of processing of <see cref="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._nextBatch"/>. These
+            tasks form a chain so that the next task only processes when the previous one completes.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._taskInFlight">
+            <summary>
+            Whether or not there is an existing task in flight that will process the current batch
+            of <see cref="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._nextBatch"/>.  If there is an existing in flight task, we don't need to
+            kick off a new one if we receive more work before it runs.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2.CancelExistingWork">
+            <summary>
+            Cancels any outstanding work in this queue.  Work that has not yet started will never run. Work that is in
+            progress will request cancellation in a standard best effort fashion.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2.WaitUntilCurrentBatchCompletesAsync">
+            <summary>
+            Waits until the current batch of work completes and returns the last value successfully computed from <see
+            cref="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._processBatchAsync"/>.  If the last <see cref="F:Microsoft.AspNetCore.Razor.Utilities.AsyncBatchingWorkQueue`2._processBatchAsync"/> canceled or failed, then a
+            corresponding canceled or faulted task will be returned that propagates that outwards.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Utilities.Delta.Compute``1(System.Collections.Immutable.ImmutableArray{``0},System.Collections.Immutable.ImmutableArray{``0})">
+            <summary>
+             Compares <paramref name="first"/> and <paramref name="second"/> and returns the items in
+             <paramref name="second"/> that are not in <paramref name="first"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Utilities.FilePathNormalizer.GetNormalizedDirectoryName(System.String)">
+            <summary>
+             Returns the directory portion of the given file path in normalized form.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Utilities.FilePathNormalizer.NormalizeCore(System.ReadOnlySpan{System.Char},System.Span{System.Char})">
+            <summary>
+             Normalizes the given <paramref name="source"/> file path and writes the result in <paramref name="destination"/>.
+            </summary>
+            <param name="source">The span to normalize.</param>
+            <param name="destination">The span to write to.</param>
+            <returns>
+             Returns a tuple containing the start index and length of the normalized path within <paramref name="destination"/>.
+            </returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Razor.Utilities.TagHelperCache.TryAddOrGet_NoLock(Microsoft.AspNetCore.Razor.Utilities.Checksum,Microsoft.AspNetCore.Razor.Language.TagHelperDescriptor)">
+            <summary>
+             Try to add the given tag helper to the cache. If it already exists, return the cached instance.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Razor.Utilities.UrlDecoder.CharToHexLookup">
+            <summary>
+             Map from an ASCII char to its hex value, e.g. arr['b'] == 11. 0xFF means it's not a hex digit.
+            </summary>
+        </member>
+        <member name="M:Microsoft.CodeAnalysis.ProjectExtensions.GetTagHelpersAsync(Microsoft.CodeAnalysis.Project,Microsoft.AspNetCore.Razor.Language.RazorProjectEngine,Microsoft.AspNetCore.Razor.Telemetry.ITelemetryReporter,System.Threading.CancellationToken)">
+            <summary>
+             Gets the available <see cref="T:Microsoft.AspNetCore.Razor.Language.TagHelperDescriptor">tag helpers</see> from the specified
+             <see cref="T:Microsoft.CodeAnalysis.Project"/> using the given <see cref="T:Microsoft.AspNetCore.Razor.Language.RazorProjectEngine"/>.
+            </summary>
+            <remarks>
+             A telemetry event will be reported to <paramref name="telemetryReporter"/>.
+            </remarks>
+        </member>
+    </members>
+</doc>

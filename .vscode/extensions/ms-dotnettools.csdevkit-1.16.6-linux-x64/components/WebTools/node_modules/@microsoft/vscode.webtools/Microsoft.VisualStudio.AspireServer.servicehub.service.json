@@ -1,0 +1,7 @@
+{
+  "host": "dotnet.aspireServer",
+  "entryPoint": {
+    "assemblyPath": "Services/Microsoft.WebTools.AspireServer.dll",
+    "fullClassName": "Microsoft.WebTools.AspireServer.ServiceFactory"
+  }
+}
