@@ -6,3 +6,8 @@
             (__)\       )\/\
                 ||----w |
                 ||     ||
+
+## Todo:
+Implement install script
+Make waybar work
+Configure wofi
