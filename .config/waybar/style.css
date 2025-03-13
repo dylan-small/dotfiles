@@ -1,0 +1,90 @@
+/* ~/.config/waybar/style.css */
+* {
+    border: none;
+    font-family: "JetBrains Mono Nerd Font", "Font Awesome 6 Solid";
+    font-size: 16px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+/* Left Pill Container */
+.modules-left {
+    background-color: rgba(9, 30, 77, 0.8);
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 5px 500px 5px 10px;
+}
+
+/* Center Pill Container */
+.modules-center {
+    background-color: rgba(13, 43, 107, 0.8);
+    border-radius: 12px;
+    padding: 0 10px;
+    margin: 5px;
+}
+
+/* Right Pill Container */
+.modules-right {
+    background-color: rgba(9, 30, 77, 0.8);
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 5px 10px 5px 0;
+}
+
+/* Module Styling */
+#cpu,
+#memory,
+#custom-gpu,
+#window,
+#hyprland-workspaces,
+#clock,
+#pulseaudio,
+#bluetooth,
+#network,
+#battery {
+    color: #ffffff;
+    padding: 0 8px;
+}
+
+#window {
+    color: #8aadf4;
+    min-width: 200px;
+}
+
+#hyprland-workspaces {
+    padding: 0 5px;
+}
+
+#hyprland-workspaces button {
+    color: #ffffff;
+    padding: 0 8px;
+}
+
+#hyprland-workspaces button.active {
+    color: #8aadf4;
+}
+
+#clock {
+    font-weight: bold;
+}
+
+#battery.warning {
+    color: #f5a97f;
+}
+
+#battery.critical {
+    color: #ed8796;
+}
+
+#workspaces button {
+    padding: 0 8px;  
+    margin: 0 3px 0 0; 
+    color: #3fc56b;  
+    background: transparent; 
+    border: none;  
+    border-radius: 10px;
+    font-family: "Nerd Font";
+  }
