@@ -39,6 +39,7 @@ open_dropdown() {
 case "$1" in
   "wifi") open_dropdown $HOME/.config/waybar/scripts/run_network_manager.sh ;;
   "bluetooth") open_dropdown $HOME/.config/waybar/scripts/run_bluetooth.sh ;;
+  "sound-mixer") open_dropdown $HOME/.config/waybar/scripts/run_sound_mixer.sh ;;
   "close") close_dropdown ;;
-  *) echo "Usage: $0 {wifi|bluetooth|close}" ;;
+  *) echo "Usage: $0 {wifi|bluetooth|sound-mixer|close}" ;;
 esac
