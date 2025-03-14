@@ -18,8 +18,7 @@
         "pulseaudio",
         "bluetooth",
         "network",
-        "clock",
-        "battery"
+        "clock"
     ],
     "cpu": {
         "format": "󰍛 {}%",
@@ -44,7 +43,8 @@
         "tooltip": false
     },
     "hyprland/window": {
-        "format": "{}"
+        "format": "{}",
+        "max-len": 200
     },
     "hyprland/workspaces": {
         "format": "{icon}",
@@ -67,10 +67,11 @@
                 "",
                 ""
             ]
-        }
+        },
+        "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh sound-mixer"
     },
     "bluetooth": {
-        "format": " {status}",
+        "format": "",
         "format-disabled": "",
         "format-connected": "",
         "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh bluetooth"

@@ -14,8 +14,8 @@ window#waybar {
 .modules-left {
     background-color: rgba(9, 30, 77, 0.8);
     border-radius: 12px;
-    padding: 0 15px;
-    margin: 5px 500px 5px 10px;
+    padding: 0 0px;
+    margin: 5px 5px 5px 10px;
 }
 
 /* Center Pill Container */
@@ -51,7 +51,7 @@ window#waybar {
 
 #window {
     color: #8aadf4;
-    min-width: 200px;
+    min-width: 5px;
 }
 
 #hyprland-workspaces {
@@ -80,11 +80,11 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 8px;  
-    margin: 0 3px 0 0; 
-    color: #3fc56b;  
-    background: transparent; 
-    border: none;  
+    padding: 0 8px;
+    margin: 0 3px 0 0;
+    color: #3fc56b;
+    background: transparent;
+    border: none;
     border-radius: 10px;
     font-family: "Nerd Font";
-  }
+}

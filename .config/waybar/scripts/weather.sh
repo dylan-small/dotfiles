@@ -9,7 +9,7 @@ TEMP=$(echo "$WEATHER_DATA" | jq -r '.current_weather.temperature')
 WEATHER_CODE=$(echo "$WEATHER_DATA" | jq -r '.current_weather.weathercode')
 SUNRISE=$(echo "$WEATHER_DATA" | jq -r '.daily.sunrise[0]')
 SUNSET=$(echo "$WEATHER_DATA" | jq -r '.daily.sunset[0]')
-CURRENT_TIME=$(date -u +"%Y-%m-%dT%H:%M")  # UTC
+CURRENT_TIME=$(date +"%Y-%m-%dT%H:%M")
 
 if [[ "$CURRENT_TIME" > "$SUNRISE" && "$CURRENT_TIME" < "$SUNSET" ]]; then
   DAY_NIGHT="day"
