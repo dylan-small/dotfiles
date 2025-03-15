@@ -10,7 +10,6 @@ window#waybar {
     background-color: transparent;
 }
 
-/* Left Pill Container */
 .modules-left {
     background-color: rgba(9, 30, 77, 0.8);
     border-radius: 12px;
@@ -18,7 +17,6 @@ window#waybar {
     margin: 5px 5px 5px 10px;
 }
 
-/* Center Pill Container */
 .modules-center {
     background-color: rgba(13, 43, 107, 0.8);
     border-radius: 12px;
@@ -26,7 +24,6 @@ window#waybar {
     margin: 5px;
 }
 
-/* Right Pill Container */
 .modules-right {
     background-color: rgba(9, 30, 77, 0.8);
     border-radius: 12px;
@@ -34,12 +31,10 @@ window#waybar {
     margin: 5px 10px 5px 0;
 }
 
-/* Module Styling */
 #cpu,
 #memory,
 #custom-gpu,
 #window,
-#hyprland-workspaces,
 #clock,
 #pulseaudio,
 #bluetooth,
@@ -52,19 +47,6 @@ window#waybar {
 #window {
     color: #8aadf4;
     min-width: 5px;
-}
-
-#hyprland-workspaces {
-    padding: 0 5px;
-}
-
-#hyprland-workspaces button {
-    color: #ffffff;
-    padding: 0 8px;
-}
-
-#hyprland-workspaces button.active {
-    color: #8aadf4;
 }
 
 #clock {
@@ -80,13 +62,25 @@ window#waybar {
 }
 
 #workspaces button {
-    padding: 0 8px;
-    margin: 0 3px 0 0;
     color: #3fc56b;
     background: transparent;
     border: none;
     border-radius: 10px;
     font-family: "Nerd Font";
+
+    background-color: #014883;
+    border-radius: 12px;
+    padding: 0 10px;
+    margin: 5px;
+    transition: padding 0.3s ease-out
+}
+
+#workspaces .active {
+    color: #ffffff;
+    background-color: #3fc56b;
+    padding: 0px 15px 0px 15px;
+    margin: 5px;
+    transition: padding 0.3s ease-in
 }
 
 #custom-power {
