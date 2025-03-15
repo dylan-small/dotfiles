@@ -39,7 +39,7 @@
     },
     "custom/weather": {
         "exec": "$HOME/.config/waybar/scripts/weather.sh",
-        "interval": 600,
+        "interval": 10,
         "format": "{}",
         "tooltip": false
     },

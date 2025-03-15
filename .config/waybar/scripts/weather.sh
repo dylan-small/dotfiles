@@ -27,9 +27,9 @@ case "$WEATHER_CODE" in
     ;;
   1|2|3) 
     if [[ "$DAY_NIGHT" == "day" ]]; then
-      WEATHER_ICON="" # Sun cloudy
+      WEATHER_ICON="" # Sun cloudy
     else
-      WEATHER_ICON=""  # Moon cloudy
+      WEATHER_ICON=""  # Moon cloudy
     fi
     ;;
   45|48) WEATHER_ICON="" ;;  # Fog
@@ -43,4 +43,4 @@ case "$WEATHER_CODE" in
 esac
 
 # Output formatted weather
-echo "| Atlanta, United States | $WEATHER_ICON $TEMP°F |"
+echo "| Atlanta, United States | $WEATHER_ICON  $TEMP°F |"
