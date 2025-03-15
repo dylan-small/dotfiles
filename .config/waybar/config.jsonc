@@ -48,12 +48,13 @@
         "max-len": 200
     },
     "hyprland/workspaces": {
-        "format": "{icon}",
+        "format": "{name}",
         "format-icons": {
-            "active": "",
-            "default": ""
+            "active": "",
+            "default": ""
         },
-        "on-click": "activate"
+        "on-click": "activate",
+        "persistent_workspaces": false
     },
     "clock": {
         "format": "{:%B %d, %Y | %I:%M %p}",
