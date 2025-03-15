@@ -88,3 +88,7 @@ window#waybar {
     border-radius: 10px;
     font-family: "Nerd Font";
 }
+
+#custom-power {
+    padding: 0 5px
+}

@@ -123,10 +123,9 @@ if [ -t 1 ];then
         echo "$aurhelper" > "$aur_cache_file"
     fi
 
-    # Roll a six-sided dice
+    # Roll a N-sided dice
     roll=$((RANDOM % 15 + 1))
 
-    # Echo different words based on the dice roll
     case $roll in
         1)
             pokego --no-title -name shinx -s
