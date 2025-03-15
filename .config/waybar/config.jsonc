@@ -18,7 +18,8 @@
         "pulseaudio",
         "bluetooth",
         "network",
-        "clock"
+        "clock",
+        "custom/power"
     ],
     "cpu": {
         "format": "󰍛 {}%",
@@ -82,5 +83,10 @@
         "format-disconnected": "󰖪",
         "tooltip-format": "{ifname}: {ipaddr}",
         "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh wifi"
+    },
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout"
     }
 }
