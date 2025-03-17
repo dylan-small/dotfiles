@@ -11,11 +11,12 @@ String[] patterns = {
 };
 
 void settings() {
-  fullScreen();
+  size(1080,400);
 }
 
 void setup() {
   frameRate(20);
+  noCursor();
   columns = width / cellSize;
   rows = height / cellSize;
   

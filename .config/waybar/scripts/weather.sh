@@ -20,9 +20,9 @@ fi
 case "$WEATHER_CODE" in
   0)
     if [[ "$DAY_NIGHT" == "day" ]]; then
-      WEATHER_ICON="" # Sun
+      WEATHER_ICON="<span color='#e2912d'></span>" # Sun
     else
-      WEATHER_ICON=""  # Moon
+      WEATHER_ICON="<span color='#797979'></span>"  # Moon
     fi
     ;;
   1|2|3) 
@@ -32,15 +32,15 @@ case "$WEATHER_CODE" in
       WEATHER_ICON=""  # Moon cloudy
     fi
     ;;
-  45|48) WEATHER_ICON="" ;;  # Fog
-  51|53|55|56|57) WEATHER_ICON="" ;;  # Drizzle
-  61|63|65|66|67) WEATHER_ICON="" ;;  # Rain
-  71|73|75|77) WEATHER_ICON="" ;;  # Snow
-  80|81|82) WEATHER_ICON="" ;;  # Rain showers
-  85|86) WEATHER_ICON="" ;;  # Snow showers
-  95|96|99) WEATHER_ICON="" ;;  # Thunderstorm
-  *) WEATHER_ICON="" ;;  # Default (Cloudy)
+  45|48) WEATHER_ICON="<span color='#696577'></span>" ;;  # Fog
+  51|53|55|56|57) WEATHER_ICON="<span color='#166afc'></span>" ;;  # Drizzle
+  61|63|65|66|67) WEATHER_ICON="<span color='#166afc'></span>" ;;  # Rain
+  71|73|75|77) WEATHER_ICON="<span color='#91f7ee'></span>" ;;  # Snow
+  80|81|82) WEATHER_ICON="<span color='#166afc'></span>" ;;  # Rain showers
+  85|86) WEATHER_ICON="<span color='#91f7ee'></span>" ;;  # Snow showers
+  95|96|99) WEATHER_ICON="<span color='#e6ed28'></span>" ;;  # Thunderstorm
+  *) WEATHER_ICON="<span color='#797979'></span>" ;;  # Default (Cloudy)
 esac
 
 # Output formatted weather
-echo "| Atlanta, United States | $WEATHER_ICON  $TEMP°F |"
+echo "| Atlanta, United States | $WEATHER_ICON $TEMP°F |"

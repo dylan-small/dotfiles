@@ -11,21 +11,21 @@ window#waybar {
 }
 
 .modules-left {
-    background-color: rgba(9, 30, 77, 0.8);
+    background-color: rgba(2, 14, 66, 0.8);
     border-radius: 12px;
     padding: 0 0px;
     margin: 5px 5px 5px 10px;
 }
 
 .modules-center {
-    background-color: rgba(13, 43, 107, 0.8);
+    background-color: rgba(2, 14, 66, 0.8);
     border-radius: 12px;
     padding: 0 10px;
     margin: 5px;
 }
 
 .modules-right {
-    background-color: rgba(9, 30, 77, 0.8);
+    background-color: rgba(2, 14, 66, 0.8);
     border-radius: 12px;
     padding: 0 15px;
     margin: 5px 10px 5px 0;
@@ -35,7 +35,6 @@ window#waybar {
 #memory,
 #custom-gpu,
 #window,
-#clock,
 #pulseaudio,
 #bluetooth,
 #network,
@@ -44,8 +43,14 @@ window#waybar {
     padding: 0 8px;
 }
 
+#clock {
+    background-color: #014883;
+    border-radius: 12px;
+    padding: 0 10px;
+    margin: 5px;
+}
 #window {
-    color: #8aadf4;
+    color: #68c0e9;
     min-width: 5px;
 }
 
@@ -76,7 +81,7 @@ window#waybar {
 }
 
 #workspaces .active {
-    color: #ffffff;
+    color: #000000;
     background-color: #3fc56b;
     padding: 0px 15px 0px 15px;
     margin: 5px;

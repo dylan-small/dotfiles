@@ -22,18 +22,18 @@
         "custom/power"
     ],
     "cpu": {
-        "format": "󰍛 {}%",
+        "format": "<span color='#797979'>󰍛</span> {}%",
         "interval": 2,
         "tooltip": false
     },
     "memory": {
-        "format": "󰆼 {used:0.1f}G",
+        "format": "<span color='#e2912d'>󰆼</span> {used:0.1f}G",
         "interval": 5,
         "tooltip": false
     },
     "custom/gpu": {
         "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | head -n1 | awk '{print $1\"%\"}'",
-        "format": "󰢮 {}",
+        "format": "<span color='#18af4b'>󰢮</span> {}",
         "interval": 5,
         "tooltip": false
     },
@@ -57,11 +57,12 @@
         "persistent_workspaces": false
     },
     "clock": {
-        "format": "{:%B %d, %Y | %I:%M %p}",
-        "tooltip": false
+        "format": "{:%I:%M %p}",
+        "tooltip": "true",
+        "tooltip-format": "{:%B %d, %Y}" 
     },
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "<span color='#797979'>{icon}</span> {volume}%",
         "format-muted": "󰖁 Muted",
         "format-icons": {
             "default": [
@@ -73,20 +74,20 @@
         "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh sound-mixer"
     },
     "bluetooth": {
-        "format": "",
-        "format-disabled": "",
-        "format-connected": "",
+        "format": "<span color='#2b65d1'></span>",
+        "format-disabled": "<span color='#f91d30'></span>",
+        "format-connected": "<span color='#18af4b'></span>",
         "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh bluetooth"
     },
     "network": {
-        "format-wifi": "",
+        "format-wifi": "<span color='#8aadf4'></span>",
         "format-ethernet": "󰈀",
         "format-disconnected": "󰖪",
         "tooltip-format": "{ifname}: {ipaddr}",
         "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh wifi"
     },
     "custom/power": {
-        "format": "⏻",
+        "format": "<span color='#f74c4c'>⏻</span>",
         "tooltip": false,
         "on-click": "wlogout"
     }
