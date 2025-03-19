@@ -48,7 +48,7 @@
         "max-len": 200
     },
     "hyprland/workspaces": {
-        "format": "{name}",
+        "format": "{icon}",
         "format-icons": {
             "active": "",
             "default": ""
