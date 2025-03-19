@@ -75,17 +75,21 @@ window#waybar {
 
     background-color: #014883;
     border-radius: 12px;
-    padding: 0 10px;
+    padding: 0 15px 0 15px;
     margin: 5px;
-    transition: padding 0.3s ease-out
+    transition: padding 0.2s ease-out
 }
 
-#workspaces .active {
+#workspaces .visible {
     color: #000000;
     background-color: #3fc56b;
-    padding: 0px 15px 0px 15px;
+    padding: 0px 25px 0px 25px;
     margin: 5px;
-    transition: padding 0.3s ease-in
+    transition: padding 0.2s ease-in
+}
+
+#workspaces .urgent {
+    background-color: #eb1535;
 }
 
 #custom-power {
