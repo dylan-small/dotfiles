@@ -102,13 +102,8 @@ XDG_TEMPLATES_DIR XDG_PUBLICSHARE_DIR XDG_DOCUMENTS_DIR XDG_MUSIC_DIR XDG_PICTUR
 
 
 if [ -t 1 ];then
-    # We are loading the prompt on start so users can see the prompt immediately
-    # Powerlevel10k theme path
-    P10k_THEME=${P10k_THEME:-/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme}
-    [[ -r $P10k_THEME ]] && source $P10k_THEME
 
-    # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh
-    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+    ZSH_THEME="robbyrussell"
 
     # Detect AUR wrapper and cache it for faster subsequent loads
     aur_cache_file="/tmp/.aurhelper.zshrc"
@@ -123,54 +118,14 @@ if [ -t 1 ];then
         echo "$aurhelper" > "$aur_cache_file"
     fi
 
-    # Roll a N-sided dice
-    roll=$((RANDOM % 15 + 1))
+    roll=$((RANDOM % 5 + 1))
 
     case $roll in
         1)
-            pokego --no-title -name shinx -s
-            ;;
-        2)
-            pokego --no-title -name bulbasaur -s
-            ;;
-        3)
-            pokego --no-title -name turtwig -s
-            ;;
-        4)
-            pokego --no-title -name pikachu -s
-            ;;
-        5)
-            pokego --no-title -name magikarp -s
-            ;;
-        6)
-            pokego --no-title -name ponyta -s
-            ;;
-        7)
-            pokego --no-title -name darkrai -s
-            ;;
-        8)
-            pokego --no-title -name mudkip -s
-            ;;
-        9)
-            pokego --no-title -name squirtle -s
-            ;;
-        10)
-            pokego --no-title -name chimchar -s
-            ;;
-        11)
-            pokego --no-title -name staryu -s
-            ;;
-        12)
-            pokego --no-title -name jigglypuff -s
-            ;;
-        13)
-            pokego --no-title -name dratini -s
-            ;;
-        14)
-            pokego --no-title -name electrode -s
+            pokego --random 4 --no-title -s
             ;;
         *)
-            pokego --no-title -name roselia -s
+            pokego --random 4 --no-title
             ;;
     esac
 
