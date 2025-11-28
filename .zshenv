@@ -103,7 +103,12 @@ XDG_TEMPLATES_DIR XDG_PUBLICSHARE_DIR XDG_DOCUMENTS_DIR XDG_MUSIC_DIR XDG_PICTUR
 
 if [ -t 1 ];then
 
-    ZSH_THEME="robbyrussell"
+    ZSH_THEME="powerlevel10k/powerlevel10k"
+
+    # Enable Powerlevel10k instant prompt
+    if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+        source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    fi
 
     # Detect AUR wrapper and cache it for faster subsequent loads
     aur_cache_file="/tmp/.aurhelper.zshrc"
@@ -117,17 +122,6 @@ if [ -t 1 ];then
         fi
         echo "$aurhelper" > "$aur_cache_file"
     fi
-
-    roll=$((RANDOM % 5 + 1))
-
-    case $roll in
-        1)
-            pokego --random 4 --no-title -s
-            ;;
-        *)
-            pokego --random 4 --no-title
-            ;;
-    esac
 
     # Helpful aliases
     if [[ -x "$(which eza)" ]]; then
@@ -157,5 +151,19 @@ if [ -t 1 ];then
 
     # Load plugins
     load_zsh_plugins
+
+    # Load Powerlevel10k configuration
+    [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+    # Display random Pokemon after prompt is ready
+    roll=$((RANDOM % 5 + 1))
+    case $roll in
+        1)
+            pokego --random 4 --no-title -s
+            ;;
+        *)
+            pokego --random 4 --no-title
+            ;;
+    esac
 
 fi

@@ -176,6 +176,15 @@ fi
 
 print_success "zsh plugins installed"
 
+# Install Powerlevel10k theme
+if [[ ! -d "$ZSH_CUSTOM/themes/powerlevel10k" ]]; then
+    print_info "Installing Powerlevel10k theme..."
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "$ZSH_CUSTOM/themes/powerlevel10k"
+    print_success "Powerlevel10k theme installed"
+else
+    print_success "Powerlevel10k theme already installed"
+fi
+
 # ============================================================================
 # 5. CREATE SYMLINKS FOR DOTFILES
 # ============================================================================
@@ -190,6 +199,7 @@ CONFIG_DIRS=(
     "waybar"
     "wofi"
     "wlogout"
+    "kitty"
     "spotify-player"
 )
 
@@ -214,6 +224,14 @@ if [[ -f "$HOME/.zshenv" ]] && [[ ! -L "$HOME/.zshenv" ]]; then
 fi
 ln -sf "$DOTFILES_DIR/.zshenv" "$HOME/.zshenv"
 print_success "Symlinked .zshenv"
+
+# Symlink .p10k.zsh
+if [[ -f "$HOME/.p10k.zsh" ]] && [[ ! -L "$HOME/.p10k.zsh" ]]; then
+    print_warning "$HOME/.p10k.zsh exists. Backing up to $HOME/.p10k.zsh.backup"
+    mv "$HOME/.p10k.zsh" "$HOME/.p10k.zsh.backup"
+fi
+ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
+print_success "Symlinked .p10k.zsh"
 
 # ============================================================================
 # 6. ADDITIONAL SETUP
