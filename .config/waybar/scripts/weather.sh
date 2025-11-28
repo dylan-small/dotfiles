@@ -43,4 +43,4 @@ case "$WEATHER_CODE" in
 esac
 
 # Output formatted weather
-echo "| Atlanta, United States | $WEATHER_ICON $TEMP°F |"
+echo "| $TEMP°F $WEATHER_ICON  |"

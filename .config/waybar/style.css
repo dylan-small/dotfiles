@@ -12,24 +12,35 @@ window#waybar {
 }
 
 .modules-left {
-    background-color: rgba(2, 14, 66, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 12px;
     padding: 0 0px;
     margin: 5px 5px 5px 10px;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: #1b4061;
 }
 
 .modules-center {
-    background-color: rgba(2, 14, 66, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 12px;
     padding: 0 10px;
     margin: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #1b4061;
 }
 
 .modules-right {
-    background-color: rgba(2, 14, 66, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     border-radius: 12px;
     padding: 0 15px;
     margin: 5px 10px 5px 0;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: #1b4061;
 }
 
 #cpu,
@@ -83,10 +94,10 @@ window#waybar {
 
 #workspaces .visible {
     color: #000000;
-    background-color: #3fc56b;
+    background-color: #61a8fe;
     padding: 0px 25px 0px 25px;
     margin: 5px;
-    transition: padding 0.2s ease-in
+    transition: padding 0.3s ease-in
 }
 
 #workspaces .urgent {
