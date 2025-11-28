@@ -1,6 +1,6 @@
 /* Auto-generated theme file - DO NOT EDIT MANUALLY */
 /* Generated from: /home/Dylan/.config/hypr/themes/colors.conf */
-/* Active theme: black */
+/* Active theme: blue */
 
 * {
     border: none;
@@ -15,33 +15,33 @@ window#waybar {
 }
 
 .modules-left {
-    background-color: rgb(8, 8, 8);
+    background-color: rgb(15, 20, 25);
     border-radius: 12px;
     padding: 0 0px;
     margin: 5px 5px 5px 10px;
     border-style: solid;
     border-width: 2px;
-    border-color: #606060;
+    border-color: #284384;
 }
 
 .modules-center {
-    background-color: rgb(8, 8, 8);
+    background-color: rgb(15, 20, 25);
     border-radius: 12px;
     padding: 0 10px;
     margin: 5px;
     border-style: solid;
     border-width: 2px;
-    border-color: #606060;
+    border-color: #284384;
 }
 
 .modules-right {
-    background-color: rgb(8, 8, 8);
+    background-color: rgb(15, 20, 25);
     border-radius: 12px;
     padding: 0 15px;
     margin: 5px 10px 5px 0;
     border-style: solid;
     border-width: 2px;
-    border-color: #606060;
+    border-color: #284384;
 }
 
 #cpu,
@@ -49,29 +49,29 @@ window#waybar {
 #custom-gpu,
 #pulseaudio,
 #battery {
-    color: rgb(144, 144, 144);
+    color: rgb(216, 222, 233);
     padding: 0 8px;
 }
 
 #window {
-    color: rgb(96, 96, 96);
+    color: rgb(94, 129, 172);
     padding: 0 8px;
     min-width: 5px;
 }
 
 #bluetooth,
 #network {
-    color: rgb(144, 144, 144);
+    color: rgb(216, 222, 233);
     padding: 0 8px;
 }
 
 #clock {
-    background-color: #606060;
+    background-color: #284384;
     border-radius: 12px;
     padding: 0 10px;
     margin: 5px;
     font-weight: bold;
-    color: rgb(176, 176, 176);
+    color: rgb(236, 239, 244);
 }
 
 #bluetooth.disabled,
@@ -84,7 +84,7 @@ window#waybar {
 }
 
 #network.wifi {
-    color: rgb(96, 96, 96);
+    color: rgb(94, 129, 172);
 }
 
 #battery.warning {
@@ -101,7 +101,7 @@ window#waybar {
     border: none;
     border-radius: 10px;
     font-family: "Nerd Font";
-    background-color: #606060;
+    background-color: #284384;
     border-radius: 12px;
     padding: 0 15px 0 15px;
     margin: 5px;
@@ -109,8 +109,8 @@ window#waybar {
 }
 
 #workspaces .visible {
-    color: rgb(176, 176, 176);
-    background-color: #757575;
+    color: rgb(236, 239, 244);
+    background-color: #13b9d8;
     padding: 0px 25px 0px 25px;
     margin: 5px;
     transition: padding 0.3s ease-in;
@@ -118,7 +118,7 @@ window#waybar {
 
 #workspaces .urgent {
     background-color: #d15959;
-    color: rgb(176, 176, 176);
+    color: rgb(236, 239, 244);
 }
 
 #custom-power {
@@ -127,5 +127,5 @@ window#waybar {
 }
 
 #custom-weather {
-    color: rgb(96, 96, 96);
+    color: rgb(94, 129, 172);
 }
