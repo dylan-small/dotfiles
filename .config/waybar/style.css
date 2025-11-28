@@ -1,4 +1,7 @@
-/* ~/.config/waybar/style.css */
+/* Auto-generated theme file - DO NOT EDIT MANUALLY */
+/* Generated from: /home/Dylan/.config/hypr/themes/colors.conf */
+/* Active theme: black */
+
 * {
     border: none;
     font-family: "JetBrains Mono Nerd Font", "Font Awesome 6 Solid";
@@ -12,98 +15,117 @@ window#waybar {
 }
 
 .modules-left {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(8, 8, 8);
     border-radius: 12px;
     padding: 0 0px;
     margin: 5px 5px 5px 10px;
-
     border-style: solid;
     border-width: 2px;
-    border-color: #1b4061;
+    border-color: #606060;
 }
 
 .modules-center {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(8, 8, 8);
     border-radius: 12px;
     padding: 0 10px;
     margin: 5px;
     border-style: solid;
     border-width: 2px;
-    border-color: #1b4061;
+    border-color: #606060;
 }
 
 .modules-right {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgb(8, 8, 8);
     border-radius: 12px;
     padding: 0 15px;
     margin: 5px 10px 5px 0;
-
     border-style: solid;
     border-width: 2px;
-    border-color: #1b4061;
+    border-color: #606060;
 }
 
 #cpu,
 #memory,
 #custom-gpu,
-#window,
 #pulseaudio,
-#bluetooth,
-#network,
 #battery {
-    color: #ffffff;
+    color: rgb(144, 144, 144);
+    padding: 0 8px;
+}
+
+#window {
+    color: rgb(96, 96, 96);
+    padding: 0 8px;
+    min-width: 5px;
+}
+
+#bluetooth,
+#network {
+    color: rgb(144, 144, 144);
     padding: 0 8px;
 }
 
 #clock {
-    background-color: #014883;
+    background-color: #606060;
     border-radius: 12px;
     padding: 0 10px;
     margin: 5px;
-}
-#window {
-    color: #68c0e9;
-    min-width: 5px;
+    font-weight: bold;
+    color: rgb(176, 176, 176);
 }
 
-#clock {
-    font-weight: bold;
+#bluetooth.disabled,
+#network.disconnected {
+    color: rgb(209, 89, 89);
+}
+
+#bluetooth.connected {
+    color: rgb(127, 185, 80);
+}
+
+#network.wifi {
+    color: rgb(96, 96, 96);
 }
 
 #battery.warning {
-    color: #f5a97f;
+    color: rgb(216, 166, 87);
 }
 
 #battery.critical {
-    color: #ed8796;
+    color: rgb(209, 89, 89);
 }
 
 #workspaces button {
-    color: #3fc56b;
+    color: rgb(127, 185, 80);
     background: transparent;
     border: none;
     border-radius: 10px;
     font-family: "Nerd Font";
-
-    background-color: #014883;
+    background-color: #606060;
     border-radius: 12px;
     padding: 0 15px 0 15px;
     margin: 5px;
-    transition: padding 0.2s ease-out
+    transition: padding 0.2s ease-out;
 }
 
 #workspaces .visible {
-    color: #000000;
-    background-color: #61a8fe;
+    color: rgb(176, 176, 176);
+    background-color: #757575;
     padding: 0px 25px 0px 25px;
     margin: 5px;
-    transition: padding 0.3s ease-in
+    transition: padding 0.3s ease-in;
 }
 
 #workspaces .urgent {
-    background-color: #eb1535;
+    background-color: #d15959;
+    color: rgb(176, 176, 176);
 }
 
 #custom-power {
-    padding: 0 5px
+    padding: 0 5px;
+    color: rgb(216, 166, 87);
+}
+
+#custom-weather {
+    color: rgb(96, 96, 96);
 }

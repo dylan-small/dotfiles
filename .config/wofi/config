@@ -1,7 +1,7 @@
 no_actions=true
 show=drun
 mode=drun
-width=25%
+width=30%
 height=30%
 insensitive=true
 allow_markup=true
