@@ -6,7 +6,6 @@
     "spacing": 4,
     "modules-left": [
         "cpu",
-        "memory",
         "custom/gpu",
         "custom/weather",
         "hyprland/window"
@@ -22,7 +21,7 @@
         "custom/power"
     ],
     "cpu": {
-        "format": "<span color='#797979'>󰍛</span> {}%",
+        "format": "<span color='#797979'>󰍛</span> {:0.0f}%",
         "interval": 2,
         "tooltip": false
     },
@@ -87,7 +86,7 @@
         "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh wifi"
     },
     "custom/power": {
-        "format": "<span color='#f74c4c'>⏻</span>",
+        "format": "<span color='#FCFC00'>⏻</span>",
         "tooltip": false,
         "on-click": "wlogout"
     }
