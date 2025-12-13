@@ -1,0 +1,131 @@
+/* Auto-generated theme file - DO NOT EDIT MANUALLY */
+/* Generated from: /home/Dylan/.config/hypr/themes/colors.conf */
+/* Active theme: blue */
+
+* {
+    border: none;
+    font-family: "JetBrains Mono Nerd Font", "Font Awesome 6 Solid";
+    font-size: 16px;
+    min-height: 0;
+    font-weight: bold;
+}
+
+window#waybar {
+    background-color: transparent;
+}
+
+.modules-left {
+    background-color: rgb(15, 20, 25);
+    border-radius: 12px;
+    padding: 0 0px;
+    margin: 5px 5px 5px 10px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #284384;
+}
+
+.modules-center {
+    background-color: rgb(15, 20, 25);
+    border-radius: 12px;
+    padding: 0 10px;
+    margin: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #284384;
+}
+
+.modules-right {
+    background-color: rgb(15, 20, 25);
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 5px 10px 5px 0;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #284384;
+}
+
+#cpu,
+#memory,
+#custom-gpu,
+#pulseaudio,
+#battery {
+    color: rgb(216, 222, 233);
+    padding: 0 8px;
+}
+
+#window {
+    color: rgb(94, 129, 172);
+    padding: 0 8px;
+    min-width: 5px;
+}
+
+#bluetooth,
+#network {
+    color: rgb(216, 222, 233);
+    padding: 0 8px;
+}
+
+#clock {
+    background-color: #284384;
+    border-radius: 12px;
+    padding: 0 10px;
+    margin: 5px;
+    font-weight: bold;
+    color: rgb(236, 239, 244);
+}
+
+#bluetooth.disabled,
+#network.disconnected {
+    color: rgb(209, 89, 89);
+}
+
+#bluetooth.connected {
+    color: rgb(127, 185, 80);
+}
+
+#network.wifi {
+    color: rgb(94, 129, 172);
+}
+
+#battery.warning {
+    color: rgb(216, 166, 87);
+}
+
+#battery.critical {
+    color: rgb(209, 89, 89);
+}
+
+#workspaces button {
+    color: rgb(127, 185, 80);
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    font-family: "Nerd Font";
+    background-color: #284384;
+    border-radius: 12px;
+    padding: 0 15px 0 15px;
+    margin: 5px;
+    transition: padding 0.2s ease-out;
+}
+
+#workspaces .visible {
+    color: rgb(236, 239, 244);
+    background-color: #13b9d8;
+    padding: 0px 25px 0px 25px;
+    margin: 5px;
+    transition: padding 0.3s ease-in;
+}
+
+#workspaces .urgent {
+    background-color: #d15959;
+    color: rgb(236, 239, 244);
+}
+
+#custom-power {
+    padding: 0 5px;
+    color: rgb(216, 166, 87);
+}
+
+#custom-weather {
+    color: rgb(94, 129, 172);
+}

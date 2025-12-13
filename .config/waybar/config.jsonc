@@ -1,0 +1,93 @@
+// ~/.config/waybar/config.json
+{
+    "layer": "top",
+    "position": "top",
+    "height": 34,
+    "spacing": 4,
+    "modules-left": [
+        "cpu",
+        "custom/gpu",
+        "custom/weather",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "pulseaudio",
+        "bluetooth",
+        "network",
+        "clock",
+        "custom/power"
+    ],
+    "cpu": {
+        "format": "󰍛 {:0.0f}%",
+        "interval": 2,
+        "tooltip": false
+    },
+    "memory": {
+        "format": "󰆼 {used:0.1f}G",
+        "interval": 5,
+        "tooltip": false
+    },
+    "custom/gpu": {
+        "exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | head -n1 | awk '{print $1\"%\"}'",
+        "format": "󰢮 {}",
+        "interval": 5,
+        "tooltip": false
+    },
+    "custom/weather": {
+        "exec": "$HOME/.config/waybar/scripts/weather.sh",
+        "interval": 10,
+        "format": "{}",
+        "tooltip": false
+    },
+    "hyprland/window": {
+        "format": "{}",
+        "max-len": 200
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "active": "",
+            "default": ""
+        },
+        "on-click": "activate",
+        "persistent_workspaces": false
+    },
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "tooltip": "true",
+        "tooltip-format": "{:%B %d, %Y}" 
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 Muted",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh sound-mixer"
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "",
+        "format-connected": "",
+        "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh bluetooth"
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{ifname}: {ipaddr}",
+        "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh wifi"
+    },
+    "custom/power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "wlogout"
+    }
+}
