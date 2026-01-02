@@ -220,6 +220,7 @@ window#waybar {
     padding: 0 15px 0 15px;
     margin: 5px;
     transition: padding 0.2s ease-out;
+    box-shadow: none;
 }
 
 #workspaces .visible {

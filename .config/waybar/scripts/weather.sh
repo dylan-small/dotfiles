@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-LAT="33.803577" 
-LON="-84.416846" 
+LAT="25.649196" 
+LON="-80.391326" 
 
 WEATHER_DATA=$(curl -s "https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&current_weather=true&daily=sunrise,sunset&timezone=auto&temperature_unit=fahrenheit")
 

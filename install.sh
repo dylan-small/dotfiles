@@ -59,7 +59,6 @@ PACMAN_PACKAGES=(
     # Desktop UI
     waybar
     wofi
-    wlogout
 
     # Applications
     kitty
@@ -135,7 +134,6 @@ print_info "Installing AUR packages..."
 AUR_PACKAGES=(
     hyprshot
     bluetuith
-    pamix
     eza
     fastfetch
     pokego

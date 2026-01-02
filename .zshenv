@@ -167,3 +167,5 @@ if [ -t 1 ];then
     esac
 
 fi
+
+export GIT_EDITOR=vim

@@ -1,7 +1,9 @@
 #!/bin/bash
 
-if pgrep -x "$1" > /dev/null; then
-    pkill -x "$1"
+process_name="$1"
+
+if pgrep "$process_name" > /dev/null; then
+    pkill "$process_name"
 else
-    $1
+    "$@"
 fi
