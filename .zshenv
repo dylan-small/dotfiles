@@ -156,13 +156,26 @@ if [ -t 1 ];then
     [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
     # Display random Pokemon after prompt is ready
-    roll=$((RANDOM % 5 + 1))
+    # Shiny rate scales with CPU usage (higher CPU = higher shiny chance)
+    # Take two samples to calculate current CPU usage
+    read -r cpu1 < <(awk '/^cpu / {print $2+$3+$4+$5+$6+$7+$8, $5}' /proc/stat)
+    sleep 0.1
+    read -r cpu2 < <(awk '/^cpu / {print $2+$3+$4+$5+$6+$7+$8, $5}' /proc/stat)
+    cpu_usage=$(awk -v total1="${cpu1% *}" -v idle1="${cpu1#* }" -v total2="${cpu2% *}" -v idle2="${cpu2#* }" \
+        'BEGIN {printf "%.0f", 100 * (1 - (idle2 - idle1) / (total2 - total1))}')
+    # Base shiny chance is 1/5 (20%), 100% at 100% CPU
+    # Scale: at 0% CPU -> 5, at 100% CPU -> 1
+    shiny_divisor=$((100 - cpu_usage))
+    #[[ $shiny_divisor -lt 1 ]] && shiny_divisor=1
+    roll=$((RANDOM % shiny_divisor + 1))
+    gen=$((RANDOM % 4 + 1))
     case $roll in
         1)
-            pokego --random 4 --no-title -s
-            ;;
+            pokego --random $gen --no-title -s
+	    echo "shiny with odds $cpu_usage%"
+	    ;;
         *)
-            pokego --random 4 --no-title
+            pokego --random $gen --no-title
             ;;
     esac
 

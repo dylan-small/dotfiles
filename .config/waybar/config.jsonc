@@ -21,7 +21,7 @@
         "custom/power"
     ],
     "cpu": {
-        "format": "󰍛 {:0.0f}%",
+        "format": " {usage}%",
         "interval": 2,
         "tooltip": false
     },
