@@ -78,6 +78,21 @@ PACMAN_PACKAGES=(
     bluez-utils
     wl-clipboard
 
+    # Screenshot tools
+    slurp
+    grim
+
+    # System monitor & utilities
+    btop
+    less
+    libnotify
+
+    # Notification center
+    swaync
+
+    # Applications
+    obsidian
+
     # Shell & terminal tools
     zsh
     git
@@ -89,6 +104,7 @@ PACMAN_PACKAGES=(
 
     # Fonts
     ttf-font-awesome
+    ttf-jetbrains-mono-nerd
     noto-fonts-emoji
     ttf-dejavu
 )
@@ -134,6 +150,7 @@ print_info "Installing AUR packages..."
 AUR_PACKAGES=(
     hyprshot
     bluetuith
+    wlogout
     eza
     fastfetch
     pokego
@@ -198,6 +215,7 @@ CONFIG_DIRS=(
     "wofi"
     "wlogout"
     "kitty"
+    "assets"
     "spotify-player"
 )
 
@@ -232,19 +250,109 @@ ln -sf "$DOTFILES_DIR/.p10k.zsh" "$HOME/.p10k.zsh"
 print_success "Symlinked .p10k.zsh"
 
 # ============================================================================
-# 6. ADDITIONAL SETUP
+# 6. MONITOR SETUP
+# ============================================================================
+
+print_info "Configuring monitors..."
+echo ""
+
+# Detect connected monitors
+if command -v hyprctl &> /dev/null && hyprctl monitors -j &> /dev/null; then
+    DETECTED=$(hyprctl monitors -j 2>/dev/null | jq -r '.[].name' 2>/dev/null)
+    if [[ -n "$DETECTED" ]]; then
+        echo "  Detected monitors:"
+        echo "$DETECTED" | while read -r mon; do echo "    - $mon"; done
+        echo ""
+    fi
+fi
+
+HYPR_CONF="$DOTFILES_DIR/.config/hypr/hyprland.conf"
+HYPRPAPER_CONF="$DOTFILES_DIR/.config/hypr/hyprpaper.conf"
+HYPRIDLE_CONF="$DOTFILES_DIR/.config/hypr/hypridle.conf"
+
+echo "  How many monitors do you have?"
+read -rp "  > " NUM_MONITORS
+NUM_MONITORS=${NUM_MONITORS:-1}
+
+MONITOR_NAMES=()
+MONITOR_LINES=""
+PRELOAD_LINES=""
+WALLPAPER_LINES=""
+DPMS_RESUME_PARTS=""
+DEFAULT_WALLPAPER="~/.config/assets/img/wallpaper/earth.jpg"
+
+for i in $(seq 1 "$NUM_MONITORS"); do
+    echo ""
+    echo "  --- Monitor $i ---"
+    read -rp "  Name (e.g. DP-1, HDMI-A-1, eDP-1): " MON_NAME
+    read -rp "  Resolution (e.g. 2560x1440@144) [1920x1080@60]: " MON_RES
+    MON_RES=${MON_RES:-1920x1080@60}
+
+    if [[ $i -eq 1 ]]; then
+        MON_POS="0x0"
+    else
+        read -rp "  Position (e.g. 1920x0) [auto]: " MON_POS
+        MON_POS=${MON_POS:-auto}
+    fi
+
+    read -rp "  Scale [1]: " MON_SCALE
+    MON_SCALE=${MON_SCALE:-1}
+
+    read -rp "  Transform (0=normal, 1=90°, 2=180°, 3=270°) [0]: " MON_TRANSFORM
+    MON_TRANSFORM=${MON_TRANSFORM:-0}
+
+    MONITOR_NAMES+=("$MON_NAME")
+
+    if [[ "$MON_TRANSFORM" != "0" ]]; then
+        MONITOR_LINES+="monitor=$MON_NAME, $MON_RES, $MON_POS, $MON_SCALE, transform, $MON_TRANSFORM\n"
+    else
+        MONITOR_LINES+="monitor=$MON_NAME, $MON_RES, $MON_POS, $MON_SCALE\n"
+    fi
+
+    read -rp "  Wallpaper path [$DEFAULT_WALLPAPER]: " MON_WALL
+    MON_WALL=${MON_WALL:-$DEFAULT_WALLPAPER}
+
+    PRELOAD_LINES+="preload = $MON_WALL\n"
+    WALLPAPER_LINES+="wallpaper {\n    monitor = $MON_NAME\n    path = $MON_WALL\n}\n\n"
+
+    [[ -n "$DPMS_RESUME_PARTS" ]] && DPMS_RESUME_PARTS+=" && "
+    DPMS_RESUME_PARTS+="hyprctl dispatch dpms on $MON_NAME"
+done
+
+# Write monitor lines into hyprland.conf
+sed -i '/^monitor=/d' "$HYPR_CONF"
+sed -i "/### MONITORS ###/,/^$/{/^$/a\\
+$(echo -e "$MONITOR_LINES")
+}" "$HYPR_CONF"
+
+# Write hyprpaper.conf
+echo -e "${PRELOAD_LINES}\n${WALLPAPER_LINES}splash = false" > "$HYPRPAPER_CONF"
+
+# Write hypridle DPMS resume with all monitors
+sed -i "s|on-resume = .*dpms on.*|on-resume = bash -c 'sleep 0.8 \&\& ${DPMS_RESUME_PARTS}'|" "$HYPRIDLE_CONF"
+
+# Update hyprlock to use the first monitor
+HYPRLOCK_CONF="$DOTFILES_DIR/.config/hypr/hyprlock.conf"
+PRIMARY_MONITOR="${MONITOR_NAMES[0]}"
+sed -i "s/monitor = DP-5/monitor = $PRIMARY_MONITOR/g" "$HYPRLOCK_CONF"
+
+print_success "Monitor configuration written (primary: $PRIMARY_MONITOR)"
+
+# ============================================================================
+# 7. ADDITIONAL SETUP
 # ============================================================================
 
 print_info "Performing additional setup..."
-
-# Create wallpapers directory
-mkdir -p "$HOME/Documents/Wallpapers"
-print_success "Created wallpapers directory"
 
 # Make scripts executable
 chmod +x "$DOTFILES_DIR/.config/hypr/scripts/"*.sh
 chmod +x "$DOTFILES_DIR/.config/waybar/scripts/"*.sh
 print_success "Made scripts executable"
+
+# Generate theme files (waybar config, kitty theme, wlogout icons, etc.)
+print_info "Generating theme files..."
+bash "$DOTFILES_DIR/.config/hypr/scripts/load_theme.sh" galactic
+print_success "Theme files generated"
 
 # Enable NetworkManager and Bluetooth services
 print_info "Enabling system services..."
@@ -269,12 +377,13 @@ echo ""
 print_success "Installation complete!"
 echo ""
 print_info "Next steps:"
-echo "  1. Add wallpapers to ~/Documents/Wallpapers/"
-echo "     - Expected: earth.jpg and uMrsMXh.jpeg"
+echo "  1. Add wallpapers to ~/.config/assets/img/wallpaper/"
+echo "     - Expected: earth.jpg, saturn.jpg, mars.jpg"
 echo "     - Or update .config/hypr/hyprpaper.conf with your wallpaper paths"
 echo "  2. Log out and log back in (or reboot) to start using Hyprland"
 echo "  3. Update your monitor configuration in .config/hypr/hyprland.conf if needed"
 echo "  4. Customize theme colors in .config/hypr/themes/colors.conf"
+echo "  5. Cycle themes with Super+Alt+T (forward) or Super+Shift+T (backward)"
 echo ""
-print_warning "Some Hyprland plugins may need to be installed with 'hyprpm update'"
+print_warning "Hyprland plugins need to be installed with 'hyprpm update'"
 echo ""

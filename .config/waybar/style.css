@@ -1,11 +1,11 @@
 /* Auto-generated theme file - DO NOT EDIT MANUALLY */
 /* Generated from: /home/dylan/.config/hypr/themes/colors.conf */
-/* Active theme: blue */
+/* Active theme: matrix */
 
 * {
     border: none;
     font-family: "JetBrains Mono Nerd Font", "Font Awesome 6 Solid";
-    font-size: 16px;
+    font-size: 18px;
     min-height: 0;
     font-weight: bold;
 }
@@ -15,118 +15,123 @@ window#waybar {
 }
 
 .modules-left {
-    background-color: rgb(15, 20, 25);
-    border-radius: 12px;
+    background-color: rgba(2, 8, 2, 0.75);
+    border-radius: 14px;
     padding: 0 0px;
-    margin: 5px 5px 5px 10px;
+    margin: 6px 6px 6px 11px;
     border-style: solid;
-    border-width: 2px;
-    border-color: #284384;
+    border-width: 1px;
+    border-color: rgba(24, 72, 24, 0.4);
 }
 
 .modules-center {
-    background-color: rgb(15, 20, 25);
-    border-radius: 12px;
-    padding: 0 10px;
-    margin: 5px;
+    background-color: rgba(2, 8, 2, 0.75);
+    border-radius: 14px;
+    padding: 0 2px;
+    margin: 6px;
     border-style: solid;
-    border-width: 2px;
-    border-color: #284384;
+    border-width: 1px;
+    border-color: rgba(24, 72, 24, 0.4);
 }
 
 .modules-right {
-    background-color: rgb(15, 20, 25);
-    border-radius: 12px;
-    padding: 0 15px;
-    margin: 5px 10px 5px 0;
+    background-color: rgba(2, 8, 2, 0.75);
+    border-radius: 14px;
+    padding: 0 16px;
+    margin: 6px 11px 6px 0;
     border-style: solid;
-    border-width: 2px;
-    border-color: #284384;
+    border-width: 1px;
+    border-color: rgba(24, 72, 24, 0.4);
 }
 
 #cpu,
+#custom-gpu {
+    color: rgb(0, 212, 56);
+    padding: 0 9px;
+}
+
 #memory,
-#custom-gpu,
 #pulseaudio,
 #battery {
-    color: rgb(216, 222, 233);
-    padding: 0 8px;
+    color: rgb(64, 176, 64);
+    padding: 0 9px;
 }
 
 #window {
-    color: rgb(94, 129, 172);
-    padding: 0 8px;
+    color: rgb(0, 212, 56);
+    padding: 0 9px;
     min-width: 5px;
 }
 
 #bluetooth,
 #network {
-    color: rgb(216, 222, 233);
-    padding: 0 8px;
+    color: rgb(64, 176, 64);
+    padding: 0 9px;
 }
 
 #clock {
-    background-color: #284384;
-    border-radius: 12px;
-    padding: 0 10px;
-    margin: 5px;
+    background-color: rgba(24, 72, 24, 0.5);
+    border-radius: 14px;
+    padding: 0 11px;
+    margin: 6px;
     font-weight: bold;
-    color: rgb(236, 239, 244);
+    color: rgb(96, 224, 96);
 }
 
 #bluetooth.disabled,
 #network.disconnected {
-    color: rgb(209, 89, 89);
+    color: rgb(208, 48, 48);
 }
 
 #bluetooth.connected {
-    color: rgb(127, 185, 80);
+    color: rgb(0, 212, 56);
 }
 
 #network.wifi {
-    color: rgb(94, 129, 172);
+    color: rgb(0, 212, 56);
 }
 
 #battery.warning {
-    color: rgb(216, 166, 87);
+    color: rgb(192, 192, 32);
 }
 
 #battery.critical {
-    color: rgb(209, 89, 89);
+    color: rgb(208, 48, 48);
 }
 
 #workspaces button {
-    color: rgb(127, 185, 80);
-    background: transparent;
+    color: transparent;
+    background-color: transparent;
     border: none;
-    border-radius: 10px;
-    font-family: "Nerd Font";
-    background-color: #284384;
-    border-radius: 12px;
-    padding: 0 15px 0 15px;
-    margin: 5px;
-    transition: padding 0.2s ease-out;
+    border-radius: 9px;
+    padding: 0 9px;
+    margin: 4px 2px;
+    font-size: 12px;
+    transition: all 0.2s ease;
     box-shadow: none;
 }
 
+#workspaces button:hover {
+    color: rgb(48, 144, 48);
+    background-color: rgba(24, 72, 24, 0.3);
+}
+
 #workspaces .visible {
-    color: rgb(236, 239, 244);
-    background-color: #13b9d8;
-    padding: 0px 25px 0px 25px;
-    margin: 5px;
-    transition: padding 0.3s ease-in;
+    color: rgb(2, 8, 2);
+    background-image: linear-gradient(135deg, #00d438, #a0ff40);
+    box-shadow: 0 0 9px rgba(0, 212, 56, 0.3);
 }
 
 #workspaces .urgent {
-    background-color: #d15959;
-    color: rgb(236, 239, 244);
+    background-color: #d03030;
+    color: rgb(96, 224, 96);
 }
 
 #custom-power {
-    padding: 0 5px;
-    color: rgb(216, 166, 87);
+    padding: 0 6px;
+    color: rgb(0, 212, 56);
 }
 
 #custom-weather {
-    color: rgb(94, 129, 172);
+    color: rgb(0, 212, 56);
 }

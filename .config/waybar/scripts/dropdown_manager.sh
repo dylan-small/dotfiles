@@ -8,8 +8,7 @@ close_dropdown() {
     echo "Lock file found. Reading PGID..."
     pgid=$(cat "$LOCK_FILE")
     echo "PGID to kill: $pgid"
-    echo pgrep -g $pgid
-    if pgrep -g $pgid >/dev/null; then
+    if pgrep -g "$pgid" >/dev/null; then
       if pkill -g $pgid 2>/dev/null; then
         echo "Process group $pgid killed."
       else
@@ -30,16 +29,17 @@ open_dropdown() {
   echo "Opening new dropdown: $@"
   "$@" &
   echo "New dropdown PID: $!"
-  pgid=$(ps -o pgid= -p "$!")
+  pgid=$(ps -o pgid= -p "$!" | tr -d ' ')
   echo "Process group ID: $pgid"
   echo "$pgid" > "$LOCK_FILE"
   echo "Lock file updated with PGID: $pgid"
 }
 
 case "$1" in
-  "wifi") open_dropdown $HOME/.config/waybar/scripts/run_network_manager.sh ;;
-  "bluetooth") open_dropdown $HOME/.config/waybar/scripts/run_bluetooth.sh ;;
-  "sound-mixer") open_dropdown $HOME/.config/waybar/scripts/run_sound_mixer.sh ;;
+  "wifi") open_dropdown "$HOME/.config/waybar/scripts/run_network_manager.sh" ;;
+  "bluetooth") open_dropdown "$HOME/.config/waybar/scripts/run_bluetooth.sh" ;;
+  "sound-mixer") open_dropdown "$HOME/.config/waybar/scripts/run_sound_mixer.sh" ;;
+  "system-monitor") open_dropdown "$HOME/.config/waybar/scripts/run_system_monitor.sh" ;;
   "close") close_dropdown ;;
-  *) echo "Usage: $0 {wifi|bluetooth|sound-mixer|close}" ;;
+  *) echo "Usage: $0 {wifi|bluetooth|sound-mixer|system-monitor|close}" ;;
 esac

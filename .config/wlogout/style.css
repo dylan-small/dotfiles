@@ -1,53 +1,53 @@
-* {
-	background-image: none;
-	box-shadow: none;
-}
+/* Auto-generated wlogout theme - DO NOT EDIT MANUALLY */
+/* Generated from: /home/dylan/.config/hypr/themes/colors.conf */
+/* Active theme: matrix */
 
 window {
-    background-color: rgba(0, 05, 15, 0.6);
+    background-color: rgba(0, 0, 0, 0.50);
 }
 
 button {
-    background-color: rgb(0, 7, 25);
-    color: rgb(255,255,255);
-    text-decoration-color: rgb(36, 156, 221);
+    background-color: rgba(4, 16, 4, 0.80);
+    color: rgb(64, 176, 64);
+    text-decoration-color: #00d438;
     margin: 10px;
-    border-radius: 15px;
-    border: none;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    border: 1px solid rgba(24, 72, 24, 0.3);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     transition: all 0.2s ease;
     background-repeat: no-repeat;
 	background-position: center;
 	background-size: 25%;
     font-family: "Roboto";
-    font-size: 32px;
+    font-size: 24px;
 }
 
 button:hover {
-	background-color: #081b33;
+	background-color: rgba(8, 24, 8, 0.90);
+	border-color: rgba(0, 212, 56, 0.5);
 	outline-style: none;
 }
 
 #lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+    background-image: url("/home/dylan/.config/wlogout/icons/lock.svg");
 }
 
 #logout {
-    background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+    background-image: url("/home/dylan/.config/wlogout/icons/logout.svg");
 }
 
 #suspend {
-    background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+    background-image: url("/home/dylan/.config/wlogout/icons/suspend.svg");
 }
 
 #hibernate {
-    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+    background-image: url("/home/dylan/.config/wlogout/icons/hibernate.svg");
 }
 
 #shutdown {
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+    background-image: url("/home/dylan/.config/wlogout/icons/shutdown.svg");
 }
 
 #reboot {
-    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+    background-image: url("/home/dylan/.config/wlogout/icons/reboot.svg");
 }

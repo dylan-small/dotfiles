@@ -1,8 +1,11 @@
-// ~/.config/waybar/config.json
+// Auto-generated waybar config - DO NOT EDIT MANUALLY
+// Generated from: /home/dylan/.config/hypr/themes/colors.conf
+// Active theme: matrix
+// Monitors: 3, Workspaces/monitor: 5
 {
     "layer": "top",
     "position": "top",
-    "height": 34,
+    "height": 38,
     "spacing": 4,
     "modules-left": [
         "cpu",
@@ -21,6 +24,7 @@
         "custom/power"
     ],
     "cpu": {
+        "on-click": "$HOME/.config/waybar/scripts/dropdown_manager.sh system-monitor",
         "format": " {usage}%",
         "interval": 2,
         "tooltip": false
@@ -49,8 +53,21 @@
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "active": "",
-            "default": ""
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "6": "1",
+            "7": "2",
+            "8": "3",
+            "9": "4",
+            "10": "5",
+            "11": "1",
+            "12": "2",
+            "13": "3",
+            "14": "4",
+            "15": "5"
         },
         "on-click": "activate",
         "persistent_workspaces": false
@@ -58,7 +75,7 @@
     "clock": {
         "format": "{:%I:%M %p}",
         "tooltip": "true",
-        "tooltip-format": "{:%B %d, %Y}" 
+        "tooltip-format": "{:%B %d, %Y}"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
