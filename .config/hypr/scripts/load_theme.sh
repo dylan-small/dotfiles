@@ -26,7 +26,6 @@ done < <(awk -v theme="$THEME" '
     /^\[.*\]/ { in_section = ($0 == "[" theme "]") ; next }
     in_section && /=/ {
         sub(/^ */, "")
-        sub(/ *#.*$/, "")
         print
     }
     in_section && /^\[/ { exit }
@@ -525,6 +524,77 @@ button:hover {
 
 #reboot {
     background-image: url("$HOME/.config/wlogout/icons/reboot.svg");
+}
+EOF
+
+# Generate Wofi style
+echo "Generating Wofi theme..."
+mkdir -p "$HOME/.config/wofi"
+cat > "$HOME/.config/wofi/style.css" <<EOF
+/* Auto-generated wofi theme - DO NOT EDIT MANUALLY */
+/* Generated from: $THEME_FILE */
+/* Active theme: $THEME */
+
+* {
+    font-family: "JetBrains Mono Nerd Font", sans-serif;
+    font-size: 14px;
+}
+
+window {
+    background-color: $(rgba_with_alpha "$BACKGROUND" "0.95");
+    border-radius: 12px;
+    border: 1px solid $(rgba_with_alpha "$WAYBAR_BORDER" "0.4");
+}
+
+#input {
+    background-color: $(rgba_with_alpha "$SURFACE" "0.8");
+    border: 1px solid $(rgba_with_alpha "$PRIMARY" "0.4");
+    border-radius: 8px;
+    padding: 12px;
+    margin: 8px;
+    color: $(rgba_to_rgb "$TEXT_BRIGHT");
+    font-size: 16px;
+}
+
+#input:focus {
+    border-color: $(rgba_to_hex "$PRIMARY");
+    box-shadow: inset 0 0 0 1px $(rgba_to_hex "$PRIMARY");
+}
+
+#scroll {
+    margin: 8px;
+    background: transparent;
+}
+
+#entry {
+    padding: 12px;
+    margin: 4px;
+    border-radius: 8px;
+    color: $(rgba_to_rgb "$TEXT");
+    background-color: transparent;
+    transition: background-color 0.2s;
+}
+
+#entry:selected {
+    background-color: $(rgba_with_alpha "$PRIMARY" "0.4");
+    border: none;
+    outline: none;
+}
+
+#entry:focus {
+    background-color: $(rgba_with_alpha "$PRIMARY" "0.4");
+}
+
+#entry:hover {
+    background-color: $(rgba_with_alpha "$SURFACE_BRIGHT" "0.5");
+}
+
+#text:selected {
+    color: $(rgba_to_rgb "$TEXT_BRIGHT");
+}
+
+#img {
+    margin-right: 12px;
 }
 EOF
 

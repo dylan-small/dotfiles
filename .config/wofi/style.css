@@ -1,23 +1,31 @@
+/* Auto-generated wofi theme - DO NOT EDIT MANUALLY */
+/* Generated from: /home/dylan/.config/hypr/themes/colors.conf */
+/* Active theme: matrix */
+
 * {
-    font-family: "Roboto", sans-serif;
+    font-family: "JetBrains Mono Nerd Font", sans-serif;
     font-size: 14px;
 }
 
 window {
-    background-color: rgba(25, 36, 48, 0.95);
+    background-color: rgba(0, 0, 0, 0.95);
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(24, 72, 24, 0.4);
 }
 
 #input {
-    background-color: rgba(0, 0, 0, 0.3);
-    border: none;
+    background-color: rgba(4, 16, 4, 0.8);
+    border: 1px solid rgba(0, 212, 56, 0.4);
     border-radius: 8px;
     padding: 12px;
     margin: 8px;
-    color: #e5e9f0;
+    color: rgb(96, 224, 96);
     font-size: 16px;
+}
+
+#input:focus {
+    border-color: #00d438;
+    box-shadow: inset 0 0 0 1px #00d438;
 }
 
 #scroll {
@@ -29,27 +37,27 @@ window {
     padding: 12px;
     margin: 4px;
     border-radius: 8px;
-    color: #c0caf5;
+    color: rgb(64, 176, 64);
     background-color: transparent;
     transition: background-color 0.2s;
 }
 
 #entry:selected {
-    background-color: rgba(46, 144, 153, 0.5);
+    background-color: rgba(0, 212, 56, 0.4);
     border: none;
     outline: none;
 }
 
 #entry:focus {
-    background-color: rgba(46, 144, 153, 0.5);
+    background-color: rgba(0, 212, 56, 0.4);
 }
 
 #entry:hover {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: rgba(8, 24, 8, 0.5);
 }
 
 #text:selected {
-    color: #192430;
+    color: rgb(96, 224, 96);
 }
 
 #img {

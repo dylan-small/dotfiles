@@ -37,14 +37,14 @@
   # Zsh >= 5.1 is required.
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
-  # Prompt colors.
+  # Prompt colors — use ANSI numbers so they follow the kitty theme.
   local grey='242'
-  local red='#FF5C57'
-  local yellow='#F3F99D'
-  local blue='#57C7FF'
-  local magenta='#FF6AC1'
-  local cyan='#9AEDFE'
-  local white='#F1F1F0'
+  local red='9'
+  local yellow='11'
+  local blue='12'
+  local magenta='13'
+  local cyan='14'
+  local white='15'
 
   # Left prompt segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
